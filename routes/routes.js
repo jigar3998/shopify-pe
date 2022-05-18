@@ -46,7 +46,16 @@ router.post('/add', upload, (req, res)=>{
 })
 
 router.get('/',(req, res) => {
-    res.render("index", {title: "Home Page"})
+    Product.find().exec((err, products) => {
+        if (err) {
+            res.json({message: message.error})
+        }else{
+            res.render('index',{
+                title: "Home Page",
+                products: products
+            })
+        }
+    })
 })
 
 router.get('/add',(req, res) => {

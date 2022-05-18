@@ -3,37 +3,51 @@
 <div class="container">
     <div class="row my-4">
         <div class="col-lg-12">
+            <% if (message) { %>
+                <div class="alert alert-dismissible fade show alert-<%= message.type%> role="alert>
+                    <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close">
+                    </button>
+                    <strong><%= message.message %> </strong>
+                </div>
+            <% } %> 
             <div class="table-responsive">
-                <table class="table table-striped text-center">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Image</th>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Price</th>
-                            <th>City</th>
-                            <th>Weather</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td><img src="" alt=""></td>
-                            <td>Iphone</td>
-                            <td>Lorem ipsum dolor sit amet, consectetur adip</td>
-                            <td>$1000</td>
-                            <td>Toronto</td>
-                            <td>20C</td>
-                            <td>
-                                <a href="" class="text-success"><i class="fas fa-edit fa-lg mx-1"></i></a>
-                                <a href="" class="text-success"><i class="fas fa-trash fa-lg mx-1" style="color:red"></i></a>
-                            </td>
-
-                        </tr>
-                    </tbody>
-                </table>
+                <% if (products != "") { %>
+                    <table class="table text-center">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                                <th>City</th>
+                                <th>Weather</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% products.forEach((row,index) => { %>
+                                <tr class="align-middle">
+                                    <td><%= index  %> </td>
+                                    <td><img src="<%= row.image %> " width="100" height="100" class="img-thumbnail"></td>
+                                    <td><%= row.name %> </td>
+                                    <td><%= row.description %> </td>
+                                    <td>$<%= row.price %> </td>
+                                    <td><%= row.city %> </td>
+                                    <td>20C</td>
+                                    <td>
+                                        <a href="/edit/<%= row._id %> " class="text-success"><i class="fas fa-edit fa-lg mx-1"></i></a>
+                                        <a href="/delete/<%= row._id %> " class="text-success"><i class="fas fa-trash fa-lg mx-1" style="color:red"></i></a>
+                                    </td>
+        
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                <% } else {%>
+                    <h1 class="text-center text-secondary mt-5 ">No Products found in Database</h1>
+                    <% } %> 
+                
             </div>    
         </div>
     </div>
