@@ -16,6 +16,26 @@ const productSchema = new mongoose.Schema({
     image: {
         type: 'string',
     },
+    weather: {
+        temp: {
+            type: 'string',
+        },
+        feels_like:{
+            type: 'string',
+        },
+        temp_min:{
+            type: 'string',
+        },
+        temp_max:{
+            type: 'string',
+        },
+        pressure:{
+            type: 'string',
+        },
+        humidity:{
+            type: 'string',
+        },
+    },
     created: {
         type: Date,
         required: true,
