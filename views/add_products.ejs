@@ -1,0 +1,43 @@
+<%- include('layout/header.ejs') %> 
+
+<div class="container">
+    <h3 style="padding-top:10px">Add Product</h3>
+    <form action="/add" method="post" id="add-form" enctype="multipart/form-data">
+        <br/>
+        <div class="form-group">
+          <label for="productName">Product Name</label>
+          <input type="text" class="form-control" id="productName" placeholder="Enter Product Name">
+        </div>
+        <br/>
+        <div class="form-group">
+            <label for="productDescription">Product Description</label>
+            <textarea class="form-control" id="productDescription" rows="3" placeholder="Enter Product Description"></textarea>
+        </div>
+        <br/>
+        <div class="form-group">
+            <label for="productPrice">Product Price</label>
+            <input type="text" class="form-control" id="productPrice" placeholder="Enter Product Price">
+          </div>
+          <br/>
+        <div class="form-group">
+            <label for="city">City</label>
+            <select class="form-control" id="city">
+              <option>Windsor</option>
+              <option>Toronto</option>
+              <option>Ottawa</option>
+              <option>Brampton</option>
+              <option>Kitchener</option>
+            </select>
+          </div>
+          <br/>
+          <div class="form-group">
+            <label for="productImage">Product Image</label>
+            <br/>
+            <input type="file" class="form-control-file" id="productImage">
+          </div>
+          <br/>
+        <button type="submit" class="btn btn-primary" style="margin-bottom: 10px;">Submit</button>
+      </form>
+</div>
+
+<%- include('layout/footer.ejs') %> 
