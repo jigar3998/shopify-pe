@@ -7,6 +7,7 @@ const { route } = require('./routes/routes');
 const app = express();
 const PORT = process.env.PORT || 4000
 
+// Configuring mongoDB
 mongoose.connect(process.env.DB_URI,
   {
     useNewUrlParser: true,
@@ -14,6 +15,7 @@ mongoose.connect(process.env.DB_URI,
   }
 );
 
+//Connecting to Database
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error: "));
 db.once("open", function () {
@@ -23,6 +25,7 @@ db.once("open", function () {
 app.use(express.urlencoded({extended: false}));
 app.use(express.json())
 
+// Initializing Session
 app.use(session({
     secret:"My secret key",
     saveUninitialized:true,
@@ -37,6 +40,7 @@ app.use((req, res, next) => {
 
 app.use(express.static('uploads'))
 
+//Using template engine
 app.set("view engine","ejs")
 
 app.use("",require("./routes/routes"))

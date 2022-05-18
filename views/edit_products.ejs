@@ -17,19 +17,9 @@
         <br/>
         <div class="form-group">
             <label for="price">Product Price</label>
-            <input type="text" class="form-control" name="price" value="<%= product.price %> "required placeholder="Enter Product Price">
+            <input type="number" min="0.00" class="form-control" name="price" value="<%= product.price %> " default="<%= product.price %> " required placeholder="Enter Product Price">
           </div>
           <br/>
-        <!-- <div class="form-group">
-            <label for="city">City</label>
-            <select class="form-control" name="city" value="<%= product.city %> " required>
-              <option>Windsor</option>
-              <option>Toronto</option>
-              <option>Ottawa</option>
-              <option>Brampton</option>
-              <option>Kitchener</option>
-            </select>
-          </div> -->
           <br/>
           <div class="form-group">
             <label for="image" class="form-label">Product Image</label>
