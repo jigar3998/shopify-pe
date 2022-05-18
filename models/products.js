@@ -13,6 +13,14 @@ const productSchema = new mongoose.Schema({
         type: 'string',
         required: true
     },
+    price: {
+        type: 'string',
+        required: true
+    },
+    weather: {
+        type: 'string',
+        required: true
+    },
     image: {
         type: 'string',
         required: true
