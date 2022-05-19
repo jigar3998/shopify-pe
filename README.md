@@ -10,6 +10,10 @@
 6. Hit npm start to run the project
 7. Press Ctrl+C to stop the server
 
+## Replit Link
+
+https://replit.com/join/lwinmjhfzr-jigar3998
+
 ## Screenshot
 
 ![This is a screenshot of project](/Inventory.png)
